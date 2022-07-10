@@ -1,6 +1,6 @@
 import { 
   createRouter, 
-  createMemoryHistory, 
+  createWebHashHistory, 
   Router,
   _RouteRecordBase
 } from "vue-router";
@@ -15,14 +15,19 @@ declare module 'vue-router'{
 
 const routers: Array<RouteRecordRaw> = [
   {
-    name: 'index',
+    name: 'home',
     path: '/',
     component: () => import('../views/home.vue')
+  },
+  {
+    name: 'login',
+    path: '/login',
+    component: () => import('../views/login/index.vue')
   }
 ]
 
 const router:Router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHashHistory(),
   routes: [...routers]
 })
 
